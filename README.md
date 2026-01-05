@@ -15,6 +15,7 @@ Fashion-MNIST-ResNet-Classification
 
 - 목표: 사전 학습된 Feature Extractor가 단순한 이미지를 분류하는 데에도 얼마나 유효한지 검증
 
+
 🛠 요구 사항 (Requirements)
 실행을 위해 다음의 라이브러리가 필요합니다.
 
@@ -22,6 +23,7 @@ Fashion-MNIST-ResNet-Classification
 - PyTorch >= 2.0.0
 - Torchvision >= 0.15.0
 - timm >= 0.9.0
+
 
 🚀 설치 및 실행 (Installation & Usage)
 1. 저장소 클론 (Clone)
@@ -40,6 +42,7 @@ python train.py
 ```
 실행 시 자동으로 `./data` 폴더에 데이터셋을 다운로드하고 학습을 시작합니다.
 
+
 📂 파일 구조 (Directory Structure)
 ```
 .
@@ -49,6 +52,8 @@ python train.py
 ├── .gitignore          # Git 제외 파일 설정
 └── README.md           # 프로젝트 설명
 ```
+
+
 🔍 코드 설명 (Code Details)
 
 `model.py`
@@ -67,13 +72,14 @@ python train.py
    1. `Pretrained Feature Extractor` 모드로 학습 및 평가
    2. `Random-init Feature Extractor` 모드로 학습 및 평가
 
+
 📊 결과 (Results)
 코드를 실행하면 다음과 같은 양상의 로그를 확인할 수 있습니다.
 - Pretrained: Backbone이 이미지 특징(Edge, Texture 등)을 잘 추출하도록 학습되어 있으므로, FC Layer만 학습해도 높은 정확도를 보입니다.
 - Random: Backbone이 랜덤한 상태에서 고정(Freeze)되어 있으므로, 특징 추출이 제대로 이루어지지 않아 정확도가 매우 낮게 나옵니다 (Feature Extractor로서의 역할을 못함).
-```Results
 <img width="1481" height="1169" alt="image" src="https://github.com/user-attachments/assets/71ec1c8a-a84d-4f02-a06d-333e55dbe9ef" />
-```
+
+
 📜 License
 
 This project is open-sourced under the MIT license.
