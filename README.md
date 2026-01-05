@@ -1,4 +1,5 @@
 FashionMNIST ResNet18 Transfer Learning Comparison
+
 이 저장소는 PyTorch와 timm 라이브러리를 사용하여 ResNet18 모델로 FashionMNIST 데이터셋을 분류하는 실험 코드를 담고 있습니다.
 
 주요 목적은 사전 학습된(Pretrained) 모델의 Feature Extractor 성능과 무작위로 초기화된(Randomized) Feature Extractor의 성능을 비교하는 것입니다. 두 경우 모두 Backbone 네트워크의 가중치를 고정(Freeze)하고, 마지막 분류 레이어(Fully Connected Layer)만 학습시켜 성능 차이를 확인합니다.
@@ -9,8 +10,8 @@ FashionMNIST ResNet18 Transfer Learning Comparison
 - 데이터셋(Dataset): FashionMNIST (10 Classes, 1 Channel)
 
 - 실험 조건:
--   1. Pretrained: ImageNet으로 사전 학습된 가중치 사용 + Backbone Freeze + FC Layer 학습
-    2. Random-init: 무작위 가중치 초기화 + Backbone Freeze + FC Layer 학습
+   1. Pretrained: ImageNet으로 사전 학습된 가중치 사용 + Backbone Freeze + FC Layer 학습
+   2. Random-init: 무작위 가중치 초기화 + Backbone Freeze + FC Layer 학습
 
 - 목표: 사전 학습된 Feature Extractor가 단순한 이미지를 분류하는 데에도 얼마나 유효한지 검증
 
@@ -49,21 +50,22 @@ python train.py
 └── README.md           # 프로젝트 설명
 ```
 🔍 코드 설명 (Code Details)
-model.py
-- timm.create_model을 사용하여 ResNet18을 불러옵니다.
 
-- FashionMNIST는 흑백 이미지이므로 in_chans=1로 설정합니다.
+`model.py`
+- `timm.create_model`을 사용하여 ResNet18을 불러옵니다.
 
-- Freeze Logic: 모든 파라미터의 requires_grad를 False로 설정한 뒤, model.fc (분류기)의 파라미터만 True로 변경하여 Backbone을 고정합니다.
+- FashionMNIST는 흑백 이미지이므로 `in_chans=1`로 설정합니다.
 
-train.py
+- Freeze Logic: 모든 파라미터의 `requires_grad`를 `False`로 설정한 뒤, `model.fc` (분류기)의 파라미터만 `True`로 변경하여 Backbone을 고정합니다.
+
+`train.py`
 - Transforms: 이미지를 32x32로 리사이즈하고 정규화를 수행합니다.
 
 - Optimizer: AdamW를 사용하며, 최적화 대상은 model.fc.parameters()로 한정됩니다.
 
 - Comparison:
--   1. Pretrained Feature Extractor 모드로 학습 및 평가
-    2. Random-init Feature Extractor 모드로 학습 및 평가
+   1. Pretrained Feature Extractor 모드로 학습 및 평가
+   2. Random-init Feature Extractor 모드로 학습 및 평가
 
 📊 예상 결과 (Expected Results)
 코드를 실행하면 다음과 같은 양상의 로그를 확인할 수 있습니다.
