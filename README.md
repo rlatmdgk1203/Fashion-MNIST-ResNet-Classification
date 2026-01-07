@@ -77,7 +77,8 @@ python train.py
 코드를 실행하면 다음과 같은 양상의 로그를 확인할 수 있습니다.
 - Pretrained: Backbone이 이미지 특징(Edge, Texture 등)을 잘 추출하도록 학습되어 있으므로, FC Layer만 학습해도 높은 정확도를 보입니다.
 - Random: Backbone이 랜덤한 상태에서 고정(Freeze)되어 있으므로, 특징 추출이 제대로 이루어지지 않아 정확도가 매우 낮게 나옵니다 (Feature Extractor로서의 역할을 못함).
-<img width="662" height="511" alt="image" src="https://github.com/user-attachments/assets/1c8a93d1-dac3-4467-9935-1829b2e5b81f" />
+<img width="665" height="508" alt="image" src="https://github.com/user-attachments/assets/d0f11802-7065-48af-886c-5ef46e89d5a9" />
+
 
 
 
