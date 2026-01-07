@@ -28,7 +28,7 @@
 ### 🚀 설치 및 실행 (Installation & Usage)
 1. 저장소 클론 (Clone)
 ```Bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/rlatmdgk1203/your-repo-name.git
 cd your-repo-name
 ```
 2. 의존성 설치 (Install Dependencies)
